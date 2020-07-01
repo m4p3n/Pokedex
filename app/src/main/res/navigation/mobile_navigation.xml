@@ -7,9 +7,14 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="it.mmilani.pokedex.ui.home.HomeFragment"
+        android:name="it.mmilani.pokedex.ui.homepage.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+        <action android:id="@+id/homepageToSecondLevel"
+            app:destination="@+id/navigation_dashboard" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"

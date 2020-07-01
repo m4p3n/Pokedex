@@ -15,10 +15,9 @@ import java.io.File
 import java.util.concurrent.TimeUnit
 
 val networkModule = module {
-//        factory { provideCache(get()) }
-        factory { provideOkHttpClient() }
+        factory { provideCache(get()) }
+        factory { provideOkHttpClient(get()) }
         single { provideRetrofit(get()) }
-
         //apis
         factory { providePokemonApi(get()) }
 
@@ -33,14 +32,14 @@ fun provideRetrofit(okHttpClient : OkHttpClient) : Retrofit {
         .build()
 }
 
-//fun provideCache(application: Application) : Cache {
-//    val cacheSize = (5 * 1024 * 1024).toLong()
-//    val httpCacheDirectory = File(application.cacheDir, "http-cache")
-//    return Cache(httpCacheDirectory, cacheSize)
-//}
+fun provideCache(application: Application) : Cache {
+    val cacheSize = (5 * 1024 * 1024).toLong()
+    val httpCacheDirectory = File(application.cacheDir, "http-cache")
+    return Cache(httpCacheDirectory, cacheSize)
+}
 
 
-fun provideOkHttpClient() : OkHttpClient {
+fun provideOkHttpClient(cache : Cache) : OkHttpClient {
     val logging = HttpLoggingInterceptor()
     logging.level = if(BuildConfig.FLAVOR == "pokeTesting")
                         HttpLoggingInterceptor.Level.BODY
@@ -48,7 +47,7 @@ fun provideOkHttpClient() : OkHttpClient {
 
     val httpClient = OkHttpClient.Builder()
     httpClient.apply {
-//        this.cache(cache)
+        this.cache(cache)
         this.addInterceptor(logging)
         this.connectTimeout(30, TimeUnit.SECONDS)
         this.readTimeout(30, TimeUnit.SECONDS)

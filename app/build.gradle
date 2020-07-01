@@ -6,6 +6,11 @@ plugins {
 }
 
 android {
+    dataBinding {
+        enabled = true
+    }
+
+
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
@@ -73,6 +78,9 @@ ext{
     gson = "2.8.5"
     converter_gson = "2.5.0"
     room = "1.1.1"
+    roxie = "0.4.0"
+    rxk = "3.0.0"
+
 
 
 
@@ -115,4 +123,10 @@ dependencies {
     // Room
     implementation "android.arch.persistence.room:runtime:$room"
     kapt "android.arch.persistence.room:compiler:$room"
+
+    //roxie
+    implementation "com.ww:roxie:$roxie"
+    //rxk
+    implementation "io.reactivex.rxjava3:rxkotlin:$rxk"
+
 }

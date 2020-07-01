@@ -13,6 +13,7 @@ interface PokemonApi {
         @Query("limit") limit : Int = 100,
         @Query("offset") offset : Int = 200) : BaseResponse<BaseResult>
 
+
     @GET
     suspend fun getPokemonListByUrl(@Url url : String) : BaseResponse<BaseResult>
 }
