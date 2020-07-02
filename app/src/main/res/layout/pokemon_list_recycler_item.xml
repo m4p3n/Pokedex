@@ -6,7 +6,7 @@
     <data>
         <variable
             name="listItemViewModel"
-            type="it.mmilani.pokedex.api.models.BaseResult" />
+            type="it.mmilani.pokedex.api.models.GenericResult" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

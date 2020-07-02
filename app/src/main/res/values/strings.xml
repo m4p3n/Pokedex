@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Pokedex</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Homepage</string>
+
+    <string name="stat_base_attack">Base Attack</string>
+    <string name="stat_effort">Effort</string>
+    <string name="error_message">Sorry something gone terribly wrong, do you mind come back later?</string>
 </resources>

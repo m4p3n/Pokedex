@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import it.mmilani.pokedex.arch.ListItemViewModel
 
-data class BaseResult(
+data class GenericResult(
     @Expose
     @SerializedName("name")
     var name : String = "",

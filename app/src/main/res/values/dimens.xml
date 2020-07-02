@@ -6,6 +6,8 @@
     <dimen name="small">8dp</dimen>
     <dimen name="medium">16dp</dimen>
     <dimen name="large">24dp</dimen>
+    <dimen name="xlarge">48dp</dimen>
+    <dimen name="xxlarge">96dp</dimen>
 
     <dimen name="small_text">8sp</dimen>
     <dimen name="medium_text">16sp</dimen>

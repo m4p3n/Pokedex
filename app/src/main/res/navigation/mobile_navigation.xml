@@ -12,19 +12,13 @@
         tools:layout="@layout/fragment_home" >
 
         <action android:id="@+id/homepageToSecondLevel"
-            app:destination="@+id/navigation_dashboard" />
+            app:destination="@+id/detail_fragment" />
 
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="it.mmilani.pokedex.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/detail_fragment"
+        android:name="it.mmilani.pokedex.ui.detail.DetailFragment"
+        tools:layout="@layout/fragment_detail" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="it.mmilani.pokedex.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>
