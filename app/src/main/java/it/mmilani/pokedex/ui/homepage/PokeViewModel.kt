@@ -59,10 +59,15 @@ class PokeViewModel(private val pokeRepo : PokemonRepository) : ViewModel() {
         when(action){
             is Action.LoadPokemonDefaultList -> {
                 currentState  = Transformations.map(pokelist) {
-                    if(it != null)
-                        homepageReducer(Change.PokemonList(it as PokemonListResponse<GenericResult>))
+                    if(it != null){
+                        when(it){
+                            is PokemonListResponse<*> -> {homepageReducer(Change.PokemonList(it as PokemonListResponse<GenericResult>))}
+                            is Error -> homepageReducer(Change.PokemonListError(Exception()))
+                            else -> null
+                        }
+                    }
                     else
-                        homepageReducer(Change.PokemonListError(Exception()))
+                        null
                 }
             }
             is Action.SearchPokemons ->{}

@@ -4,5 +4,6 @@
 
     <string name="stat_base_attack">Base Attack</string>
     <string name="stat_effort">Effort</string>
-    <string name="error_message">Sorry something gone terribly wrong, do you mind come back later?</string>
+    <string name="error_message">Sorry something has gone terribly wrong, do you mind come back later?</string>
+    <string name="intro">Choose your pokemon : </string>
 </resources>

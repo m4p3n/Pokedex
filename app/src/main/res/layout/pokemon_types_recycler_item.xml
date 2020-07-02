@@ -22,10 +22,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="@dimen/medium"
+            android:layout_margin="@dimen/small"
             app:cardCornerRadius="@dimen/medium"
             app:contentPadding="@dimen/small"
-            app:cardElevation="@dimen/medium">
+            app:cardElevation="@dimen/xsmall">
 
             <TextView
                 android:layout_width="match_parent"
