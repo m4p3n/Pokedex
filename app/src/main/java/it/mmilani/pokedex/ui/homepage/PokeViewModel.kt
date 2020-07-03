@@ -10,7 +10,7 @@ import it.mmilani.pokedex.api.repo.PokemonRepository
 import it.mmilani.pokedex.arch.States.State
 import it.mmilani.pokedex.arch.actions.Action
 import it.mmilani.pokedex.arch.changes.Change
-import org.koin.dsl.module.module
+import org.koin.dsl.module
 
 val viewModelModule = module {
         single { PokeViewModel(get())}

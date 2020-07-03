@@ -1,21 +1,22 @@
 package it.mmilani.pokedex.arch
 
 import android.app.Application
-import com.google.gson.Gson
+import android.content.Context
 import it.mmilani.pokedex.BuildConfig
 import it.mmilani.pokedex.api.PokemonApi
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.dsl.module.module
+import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
+import org.koin.dsl.module
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 
 val networkModule = module {
-        factory { provideCache(get()) }
+        factory { provideCache(androidApplication()) }
         factory { provideOkHttpClient(get()) }
         single { provideRetrofit(get()) }
         //apis
@@ -28,7 +29,6 @@ fun provideRetrofit(okHttpClient : OkHttpClient) : Retrofit {
         .baseUrl(BuildConfig.API_BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 }
 
@@ -39,7 +39,7 @@ fun provideCache(application: Application) : Cache {
 }
 
 
-fun provideOkHttpClient(cache : Cache) : OkHttpClient {
+fun provideOkHttpClient(cache: Cache) : OkHttpClient {
     val logging = HttpLoggingInterceptor()
     logging.level = if(BuildConfig.FLAVOR == "pokeTesting")
                         HttpLoggingInterceptor.Level.BODY

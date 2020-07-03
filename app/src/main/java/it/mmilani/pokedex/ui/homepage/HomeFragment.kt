@@ -16,8 +16,9 @@ import it.mmilani.pokedex.arch.States.State
 import it.mmilani.pokedex.arch.actions.Action
 import it.mmilani.pokedex.databinding.FragmentHomeBinding
 import it.mmilani.pokedex.ui.homepage.adapter.GenericRecylerViewAdapter
-import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.dsl.module.module
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.dsl.module
+
 
 val fragmentModule = module {
     factory { HomeFragment() }
@@ -80,14 +81,14 @@ class HomeFragment : Fragment() {
                     pokemonAdapter.addItems(it.results.results?: emptyList())
                     binding.apply {
                         errorLayout.visibility = View.GONE
-                        pokemonList.visibility = View.VISIBLE
+                        mainContent.visibility = View.VISIBLE
                     }
                 }
                 is State.PokemonListError -> {
-                    Log.d(TAG, "FLOW -> State.PokemonListError -> ${it} ")
+                    Log.d(TAG, "FLOW -> State.PokemonListError -> ${it.error.message} ")
                     binding.apply {
                         errorLayout.visibility = View.VISIBLE
-                        pokemonList.visibility = View.GONE
+                        mainContent.visibility = View.GONE
                     }
                 }
             }

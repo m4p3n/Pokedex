@@ -16,8 +16,8 @@ import it.mmilani.pokedex.arch.States.State
 import it.mmilani.pokedex.databinding.FragmentDetailBinding
 import it.mmilani.pokedex.ui.homepage.PokeViewModel
 import it.mmilani.pokedex.ui.homepage.adapter.GenericRecylerViewAdapter
-import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.dsl.module.module
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.dsl.module
 
 
 val detailModule = module {
